@@ -1,0 +1,20 @@
+1508672633836	Delete element
+1508672637098	Delete element
+1508672697715	Move files
+1508672701570	Delete element
+1508673410829	Encapsulate field 'client'
+1508673415031	Encapsulate field 'data'
+1508673418595	Encapsulate field 'receiver'
+1508673422249	Encapsulate field 'codeRequest'
+1508674179740	Encapsulate field 'clientList'
+1508675259217	Encapsulate field 'receiver'
+1508678256123	Encapsulate field 'roomList'
+1508690660747	Delete element
+1508692203017	Delete element
+1508693554953	Encapsulate field 'players'
+1508693558942	Encapsulate field 'id'
+1508693563021	Encapsulate field 'name'
+1508694743496	Delete element
+1508694918984	Encapsulate field 'lobbyViewController'
+1508708679118	Encapsulate field 'roomViewController'
+1508708684072	Encapsulate field 'StartViewController'

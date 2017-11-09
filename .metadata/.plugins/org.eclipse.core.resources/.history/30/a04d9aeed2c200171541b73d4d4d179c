@@ -1,0 +1,19 @@
+package server;
+
+public class ServerConfiguration {
+	private static ServerConfiguration instance = null;
+	private ServerConfiguration(){
+		this.load();
+	}
+
+	static ServerConfiguration getInstance(){
+		if (!(instance instanceof ServerConfiguration)){
+			instance = new ServerConfiguration();
+		}
+		return instance;
+	}
+
+	private void load(){
+
+	}
+}

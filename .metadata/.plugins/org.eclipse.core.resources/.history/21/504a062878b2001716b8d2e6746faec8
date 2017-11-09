@@ -1,0 +1,10 @@
+package chessEngine;
+
+import java.util.ArrayList;
+
+public class Board {
+	private List<Figure> board = new ArrayList<Figure>();
+	public Board() {
+	}
+
+}

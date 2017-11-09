@@ -1,0 +1,8 @@
+package common;
+
+import java.io.Serializable;
+
+public class Winner implements Serializable{
+	public chessEngine.Logic.STATE state;
+	public chessEngine.Color color;
+}

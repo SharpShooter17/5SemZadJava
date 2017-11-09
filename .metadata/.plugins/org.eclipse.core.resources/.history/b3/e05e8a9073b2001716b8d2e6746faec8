@@ -1,0 +1,16 @@
+package chessEngine;
+
+public abstract class Figure {
+	private Position position;
+	private Color color;
+	public Figure(Position position){
+		setPosition(position);
+	}
+	public Position getPosition() {
+		return position;
+	}
+	public void setPosition(Position position) {
+		this.position = position;
+	}
+	
+}

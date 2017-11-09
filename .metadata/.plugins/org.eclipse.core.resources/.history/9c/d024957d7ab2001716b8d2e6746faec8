@@ -1,0 +1,10 @@
+package chessEngine;
+
+public class Board {
+	private Figure[][] board;
+	public Board() {
+		board = new Figure[8][8];
+		
+	}
+
+}

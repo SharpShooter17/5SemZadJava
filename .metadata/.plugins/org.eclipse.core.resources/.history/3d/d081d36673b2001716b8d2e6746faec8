@@ -1,0 +1,9 @@
+package chessEngine;
+
+public abstract class Figure {
+	private Position position;
+	public Figure(Position position){
+		
+	}
+	
+}

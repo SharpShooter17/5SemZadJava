@@ -1,0 +1,12 @@
+package chessEngine;
+
+public class Logic {
+
+	public Logic() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	public boolean moveIsValid(Position position, Figure figure){
+		
+	}
+}

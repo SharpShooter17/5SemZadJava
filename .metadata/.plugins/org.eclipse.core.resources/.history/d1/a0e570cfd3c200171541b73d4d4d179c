@@ -1,0 +1,28 @@
+package server;
+
+import java.io.File;
+
+import org.w3c.dom.Document;
+
+public class ServerConfiguration {
+	private static ServerConfiguration instance = null;
+	private ServerConfiguration(){
+		this.load();
+	}
+
+	static ServerConfiguration getInstance(){
+		if (!(instance instanceof ServerConfiguration)){
+			instance = new ServerConfiguration();
+		}
+		return ServerConfiguration.instance;
+	}
+
+	private void load(){
+		SAXBuilder saxBuilder = new SAXBuilder();
+
+		File inputFile = new File(this.getClass().getResource("data/config.xml").getFile());
+		SAXBuilder saxBuilder = new SAXBuilder();
+		Document document = saxBuilder.build(inputFile);
+
+	}
+}

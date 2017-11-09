@@ -1,0 +1,35 @@
+Menu
+New service
+Service_0
+New service
+Service_1
+Order service
+0
+12.12.2007 15.15
+11.12.2017 13.54
+Order service
+0
+12.12.2008 15.15
+11.12.2010 13.54
+Order service
+0
+11.12.2017 13.55
+11.12.2017 17.55
+Order service
+1
+12.12.2007 15.15
+11.12.2017 13.54
+All reservations
+Cancel reservation
+0
+My reservations
+Cancel reservation
+2
+My services
+Delete service
+0
+Delete service
+1
+Cancel reservation
+3
+CLOSE

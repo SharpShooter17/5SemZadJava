@@ -1,0 +1,9 @@
+package chessEngine;
+
+public class Horse extends Figure {
+
+	public Horse(Position position, Color color) {
+		super(position, color);
+		// TODO Auto-generated constructor stub
+	}
+}

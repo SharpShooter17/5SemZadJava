@@ -1,0 +1,16 @@
+package chessEngine;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Board {
+	private List<Figure> board;
+	public Board() {
+		board = new ArrayList<Figure>();
+		for (int i = 1; i <= 8; i++){
+			board.add(new Pawn(new Position(i,2), Color.White));
+			board.add(new Pawn(new Position(i,7), Color.Black));
+		}
+	}
+
+}

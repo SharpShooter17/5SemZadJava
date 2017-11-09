@@ -1,0 +1,12 @@
+package client;
+
+public class Controller {
+	private Client client;
+
+	public Controller() {
+		client = new Client("172.0.0.1", 62000);
+	}
+	public Client getClient() {
+		return client;
+	}
+}

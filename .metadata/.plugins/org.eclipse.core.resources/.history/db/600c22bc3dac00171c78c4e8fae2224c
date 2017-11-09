@@ -1,0 +1,111 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.util.ArrayList;
+import java.util.List;
+
+/*****************************************************************************************************************************************
+ * Aplikacja obslugujaca bank czasu. Klient zglasza (i wycofuje) uslugi jakie moze wykonac i ich terminy, 
+ * moze tez zarzadac wyswietlenia wszystkich dostepnych uslug w banku i zarezerwowac sobie wybrana usluge. 
+ * Serwer rozsyla komunikaty o nowych, zarezerwowanych, niewykorzystanych i wycofanych uslugach i terminach do wszystkich klientow. 
+ * Nalezy zadbac o odpowiednia synchronizacje dostepu do zasobow i ich aktualizacje.
+ *****************************************************************************************************************************************/
+
+class Connected extends Thread {
+	private Socket clientSocket;
+	public Connected(Socket clientSocket){
+		this.clientSocket = clientSocket;
+	}
+	
+	public void run(){
+		
+		try {
+			PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
+			BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+			
+			while (true){
+				String line = new String();
+				line = in.readLine();
+				
+				if (line.equals("close")){
+					clientSocket.close();
+					return;
+				}
+				
+				out.println("Server: " + line);
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+}
+
+class Service {
+	protected String name;
+	
+	public String getName() {
+		return name;
+	}
+}
+
+class Printer extends Service {
+	
+	public Printer() {
+		name = "Printer";
+	}
+}
+
+class Scanner extends Service {
+	
+	public Scanner() {
+		name = "Scanner";
+	}
+}
+
+class VirtualMachine extends Service {
+	
+	public Scanner() {
+		name = "Virtual machine";
+	}
+}
+
+class Server {
+	private List<Service> listServices;
+	
+	public Server(){
+		listServices = new ArrayList<Service>();
+		listServices.add(new Printer());
+		listServices.add(new Printer());
+		listServices.add(new Printer());
+		listServices.add(new Printer());
+		listServices.add(new Scanner());
+		listServices.add(new Scanner());
+		listServices.add(new Scanner());
+		listServices.add(new Scanner());
+		
+		
+	}
+	
+	public void run(){
+		ServerSocket serverSocket;
+		try {
+			serverSocket = new ServerSocket(4321);
+			while (true) {
+				Socket clientSocket = serverSocket.accept();
+				new Connected(clientSocket).start();
+			}
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+}
+
+public class Main {
+	public static void main(String args[]){
+		return;
+	}
+}

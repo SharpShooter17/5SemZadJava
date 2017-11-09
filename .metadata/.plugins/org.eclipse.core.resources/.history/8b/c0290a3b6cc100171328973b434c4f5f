@@ -1,0 +1,14 @@
+package client;
+
+import java.net.InetAddress;
+
+public class Controller {
+	private Client client;
+
+	public Controller() {
+		client = new Client(new InetAddress(  ), 62000);
+	}
+	public Client getClient() {
+		return client;
+	}
+}

@@ -1,0 +1,9 @@
+package chessEngine;
+
+public class Horse {
+
+	public Horse() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

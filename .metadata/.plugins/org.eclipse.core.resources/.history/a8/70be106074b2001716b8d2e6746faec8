@@ -1,0 +1,8 @@
+package chessEngine;
+
+public class King extends King {
+
+	public King() {
+	}
+
+}

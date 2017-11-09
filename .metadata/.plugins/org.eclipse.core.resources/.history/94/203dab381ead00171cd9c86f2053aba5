@@ -1,0 +1,18 @@
+
+public class Protocol {
+	enum STATE { 
+		menu, 
+		newService, 
+		deleteService, 
+		allServices, 
+		availableServices, 
+		orderService, 
+		cancelService };
+	
+	private STATE state;
+	
+	public Protocol() {
+		state = STATE.main;		
+	}
+	
+}

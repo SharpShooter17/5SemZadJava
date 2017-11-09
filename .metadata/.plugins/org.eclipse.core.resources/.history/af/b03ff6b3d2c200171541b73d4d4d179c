@@ -1,0 +1,15 @@
+package server;
+
+public class ServerConfiguration {
+	private ServerConfiguration instance;
+	private ServerConfiguration(){
+
+	}
+
+	ServerConfiguration getInstance(){
+		if (!(instance instanceof ServerConfiguration)){
+			instance = new ServerConfiguration();
+		}
+	}
+
+}

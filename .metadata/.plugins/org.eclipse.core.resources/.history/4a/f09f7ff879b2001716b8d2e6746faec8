@@ -1,0 +1,13 @@
+package chessEngine;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Board {
+
+	private Figure[][] board;
+	public Board() {
+		board = new 
+	}
+
+}

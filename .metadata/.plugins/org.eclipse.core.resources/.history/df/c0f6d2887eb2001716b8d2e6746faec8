@@ -1,0 +1,45 @@
+package chessEngine;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Board {
+	private List<Figure> board;
+	public Board() {
+		board = new ArrayList<Figure>();
+		//Pawns
+		for (int i = 1; i <= 8; i++){
+			board.add(new Pawn(new Position(i,2), Color.White));
+			board.add(new Pawn(new Position(i,7), Color.Black));
+		}
+		//Rooks
+		board.add(new Rook(new Position(1,1), Color.White));
+		board.add(new Rook(new Position(8,1), Color.White));
+		board.add(new Rook(new Position(1,8), Color.Black));
+		board.add(new Rook(new Position(8,8), Color.Black));
+		//Horses
+		board.add(new Horse(new Position(2,1), Color.White));
+		board.add(new Horse(new Position(7,1), Color.White));
+		board.add(new Horse(new Position(2,8), Color.Black));
+		board.add(new Horse(new Position(7,8), Color.Black));
+		//Bishops
+		board.add(new Bishop(new Position(3,1), Color.White));
+		board.add(new Bishop(new Position(6,1), Color.White));
+		board.add(new Bishop(new Position(3,8), Color.Black));
+		board.add(new Bishop(new Position(6,8), Color.Black));
+		//King
+		board.add(new King(new Position(4,1), Color.White));
+		board.add(new King(new Position(4,8), Color.Black));
+		//Queen
+		board.add(new Queen(new Position(5,1), Color.White));
+		board.add(new Queen(new Position(5,8), Color.White));
+	}
+	
+	public Figure getFigureFrom(Position position){
+		for (Figure figure : board) {
+			
+		}
+		throw new ExceptionNoFigureAtPosition();
+	}
+
+}

@@ -1,0 +1,6 @@
+package common;
+
+public class Winner {
+	public chessEngine.Logic.STATE state;
+	public chessEngine.Color color;
+}

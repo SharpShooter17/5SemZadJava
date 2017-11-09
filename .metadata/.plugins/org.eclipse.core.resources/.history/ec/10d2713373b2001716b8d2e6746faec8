@@ -1,0 +1,5 @@
+package chessEngine;
+
+public abstract class Figure {
+
+}

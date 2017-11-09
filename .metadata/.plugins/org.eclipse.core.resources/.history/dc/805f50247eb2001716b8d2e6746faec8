@@ -1,0 +1,31 @@
+package chessEngine;
+
+public class Logic {
+	
+	private Color actualPlayer;
+	
+	public Logic() {
+		actualPlayer = Color.White;
+	}
+	
+	public boolean moveIsValid(Position position, Figure figure){
+		
+		return false;
+	}
+
+	public Color getActualPlayer() {
+		return actualPlayer;
+	}
+
+	public void setActualPlayer(Color actualPlayer) {
+		this.actualPlayer = actualPlayer;
+	}
+	
+	boolean makeMove(){
+		
+	}
+	
+	public void changePlayer(){
+		
+	}
+}

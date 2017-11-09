@@ -1,0 +1,4 @@
+package chessEngine;
+
+public class Bishop extends Bishop{
+}

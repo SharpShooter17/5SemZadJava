@@ -1,0 +1,8 @@
+Projekt:
+Gra sieciowa. Reguly gry:
+gra zaklada nieskonczona liczbe graczy lub gdy ze wzgledu na reguly to nie ma sensu, 
+gre w wielu pokojach rownoczesnie
+komunikacja pomiedzy klientami (graczami) odbywa sie zawsze za posrednictwem serwera
+Serwer jest odporny na nieprawidlowe polecenia przesylane przez klienta
+Konfiguracja serwera w pliku XML.
+Nalezy dostarczyc takze zbior testow jednostkowych.

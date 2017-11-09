@@ -1,0 +1,6 @@
+package chessEngine;
+
+public class Pawn extends Figure {
+
+
+}

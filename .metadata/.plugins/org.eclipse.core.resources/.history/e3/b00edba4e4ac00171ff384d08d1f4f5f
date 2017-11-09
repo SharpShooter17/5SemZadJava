@@ -1,0 +1,157 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.util.ArrayList;
+import java.util.List;
+
+/*****************************************************************************************************************************************
+ * Aplikacja obslugujaca bank czasu. Klient zglasza (i wycofuje) uslugi jakie moze wykonac i ich terminy, 
+ * moze tez zarzadac wyswietlenia wszystkich dostepnych uslug w banku i zarezerwowac sobie wybrana usluge. 
+ * Serwer rozsyla komunikaty o nowych, zarezerwowanych, niewykorzystanych i wycofanych uslugach i terminach do wszystkich klientow. 
+ * Nalezy zadbac o odpowiednia synchronizacje dostepu do zasobow i ich aktualizacje.
+ * 
+ * Klient mo¿e dodaæ us³ugê.
+ * Klient mo¿e zarezerwowaæ us³ugê.
+ * W³aœciciel mo¿e usun¹æ us³ugê.
+ * Klient mo¿e anulowaæ rezerwacjê.
+ * Serwer wyœwietla dostêpne us³ugi
+ * Serwer wyœwietla wolne us³ugi
+ *****************************************************************************************************************************************/
+
+class Connected extends Thread {
+	private Socket clientSocket;
+	private Server server;
+	private final int id;
+	PrintWriter out;
+	BufferedReader in;
+	
+	public Connected(int id, Socket clientSocket, Server server){
+		this.id = id;
+		this.clientSocket = clientSocket;
+		this.server = server;
+		try {
+			out = new PrintWriter(clientSocket.getOutputStream(), true);
+			in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	private void close(){
+		try {
+			clientSocket.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	private String read(){
+		try {
+			return  in.readLine();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	private void print(String msg){
+		out.println("[Server] " + msg");
+	}
+	
+	public void run(){
+
+		while (true){
+			String line = new String();
+			line = read();
+			
+			if (line.equals("close")){
+				close();
+				return;
+			} else if (line.equals("New service")){
+				out.println("[Server] " + "Podaj nazwe us³ugi: ");
+				line = read();
+				server.addNewService(id, line);
+				out.println("[Server] " + "Utworzono now¹ us³ugê.");
+			} else if (line.equals("Delete service")){
+				
+			}
+			
+			out.println("Server: " + line);
+		}
+	}
+
+	public long getId() {
+		return id;
+	}
+}
+
+class Service {
+	private final int idOwner;
+	private String name;
+	
+	Service(int idOwner, String name){
+		this.idOwner = idOwner;
+		this.name = name;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public int getIdOwner() {
+		return idOwner;
+	}
+}
+
+class Server {
+	List<Connected> connected;
+	List<Service> services;
+	private int clientCounter = 0;
+	
+	public Server(){
+		connected = new ArrayList<Connected>();
+		services = new ArrayList<Service>();
+	}
+	
+	public List<Service> getOwnerServices(int id){
+		List<Service> result = new ArrayList<Service>();
+		
+		for (Service service : services) {
+			if (service.getIdOwner() == id){
+				result.add(service);
+			}
+		}
+		
+		return result;
+	}
+	
+	public void addNewService(int id, String name){
+		services.add(new Service(id, name));
+	}
+	
+	public void run(){
+		ServerSocket serverSocket;
+		try {
+			serverSocket = new ServerSocket(4321);
+			while (true) {
+				Socket clientSocket = serverSocket.accept();
+				Connected client = new Connected(clientCounter++, clientSocket, this);
+				connected.add(client);
+				client.start();
+			}
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+}
+
+public class Main {
+	public static void main(String args[]){
+		new Server().run();
+		return;
+	}
+}

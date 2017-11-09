@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy package &apos;chessEngine&apos; to &apos;ChessGame/src&apos;&#x0D;&#x0A;- Original project: &apos;Chess&apos;&#x0D;&#x0A;- Destination element: &apos;ChessGame/src&apos;&#x0D;&#x0A;- Original element: &apos;Chess/src/chessEngine&apos;" description="Copy package" destination="=ChessGame/src" element1="/src&lt;chessEngine" flags="589830" fragments="1" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyPackages" stamp="1509193270572" version="1.0"/>
+</session>

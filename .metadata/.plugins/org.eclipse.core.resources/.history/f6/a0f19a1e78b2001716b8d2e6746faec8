@@ -1,0 +1,8 @@
+package chessEngine;
+
+public class Board {
+
+	public Board() {
+	}
+
+}

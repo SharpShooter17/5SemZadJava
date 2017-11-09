@@ -1,0 +1,8 @@
+package chessEngine;
+
+public abstract class Figure {
+	protected Position position;
+	public Figure(Position position){
+		
+	}
+}
